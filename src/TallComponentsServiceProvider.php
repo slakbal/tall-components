@@ -5,6 +5,7 @@ namespace Slakbal\TallComponents;
 // use Livewire\Livewire;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Blade;
+use Illuminate\View\Compilers\BladeCompiler;
 use Slakbal\TallComponents\View\Components\Date;
 
 class TallComponentsServiceProvider extends ServiceProvider
@@ -29,9 +30,11 @@ class TallComponentsServiceProvider extends ServiceProvider
         $this->loadViewsFrom(__DIR__ . '/../resources/views', 'tall-components');
 
         //Blade Components
-        Blade::component('datetime-picker', Date\DateTimePicker::class);
-        // Blade::component('date-picker', Date\DatePicker::class);
-        // Blade::component('time-picker', Date\TimePicker::class);
+        Blade::component('tall-components::datetime-picker', Date\DateTimePicker::class);
+        // Blade::component('package-name::your-component', 'your-component');
+
+        //Auto Load the Components Folder by direct guessing and matching of component names
+        Blade::componentNamespace('TallComponents\\Views\\Components', 'tall-components');
 
         //Livewire Components
         // Livewire::component('date-picker', Date\DatePicker::class);

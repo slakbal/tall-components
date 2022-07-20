@@ -18,7 +18,9 @@
         "Livewire"
     ],
     "require": {
-        "illuminate/support": "~8|~9"
+        "illuminate/support": "~8|~9",
+        "blade-ui-kit/blade-icons": "*",
+        "davidhsianturi/blade-bootstrap-icons": "*"
     },
     "require-dev": {
         "phpunit/phpunit": "^9.5",
