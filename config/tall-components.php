@@ -1,6 +1,6 @@
 <?php
 return [
     'datetimepicker' => [
-        'altDateTimeFormat' => 'd M Y, H:i',
+        'altDateTimeFormat' => env('DEFAULT_DATETIME_FORMAT', 'd M Y, H:i'),
     ]
 ];

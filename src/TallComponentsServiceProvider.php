@@ -7,6 +7,7 @@ use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\View\Compilers\BladeCompiler;
 use Slakbal\TallComponents\View\Components\Date;
+use Illuminate\Foundation\AliasLoader;
 
 class TallComponentsServiceProvider extends ServiceProvider
 {
@@ -29,16 +30,25 @@ class TallComponentsServiceProvider extends ServiceProvider
 
         $this->loadViewsFrom(__DIR__ . '/../resources/views', 'tall-components');
 
-        //Blade Components
-        Blade::component('tall-components::datetime-picker', Date\DateTimePicker::class);
-        // Blade::component('package-name::your-component', 'your-component');
-
         //Auto Load the Components Folder by direct guessing and matching of component names
         Blade::componentNamespace('TallComponents\\Views\\Components', 'tall-components');
 
+        $this->bootDateTimeComponents();
+
+        $this->bootLivewireComponents();
+    }
+
+    public function bootLivewireComponents()
+    {
         //Livewire Components
         // Livewire::component('date-picker', Date\DatePicker::class);
+    }
 
+    public function bootDateTimeComponents()
+    {
+        //Blade Components
+        Blade::component('tall-components::datetime-picker', Date\DateTimePicker::class);
+        // Blade::component('package-name::your-component', 'your-component');
     }
 
     /**
@@ -48,6 +58,7 @@ class TallComponentsServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
+        //Load the config before anything else
         $this->mergeConfigFrom(__DIR__ . '/../config/tall-components.php', 'tall-components');
     }
 }

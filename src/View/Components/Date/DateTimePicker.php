@@ -9,7 +9,8 @@ class DateTimePicker extends Component
     public function getConfiguration()
     {
         return [
-            'dateFormat' => 'Y-m-d H:i:S', //the format of the datetime that is sent to the server
+            // 'dateFormat' => 'Y-m-d H:i:S', //the format of the datetime that is sent to the server
+            'dateFormat' => 'Z',
             'enableTime' => true,
             'time_24hr' => true,
             'altInput' => true,
