@@ -3,7 +3,7 @@
 <div x-data="{
         element: $refs.{{$name}}Area,
         limit: $el.dataset.limit,
-        remaining: 0,
+        remaining: this.limit - this.element.value.length,
         get limitText() {
             remainingLength = this.limit - this.element.value.length;
             this.remaining = (remainingLength > 0) ? remainingLength : 0;
