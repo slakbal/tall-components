@@ -3,7 +3,7 @@
 <div x-data="{
         element: $refs.{{$name}}Area,
         limit: $el.dataset.limit,
-        remaining: this.limit - this.element.value.length,
+        remaining: $el.dataset.limit,
         get limitText() {
             remainingLength = this.limit - this.element.value.length;
             this.remaining = (remainingLength > 0) ? remainingLength : 0;
@@ -13,8 +13,9 @@
     data-limit="{{ $limit }}"
     >
     @if($label)<x-tall-components::common.label for="{{$name}}" :value="$label" />@endif
-    <x-tall-components::text.field x-ref="{{$name}}Area" x-on:keyup="$el.value = limitText" {{$attributes}}></x-tall-components::text.field>
+    <x-tall-components::text.field x-ref="{{$name}}Area" wire:key="{{ rand() }}" x-on:keyup="$el.value = limitText" {{$attributes}}></x-tall-components::text.field>
     <p x-ref="remaining">You have <span x-text="remaining"></span> characters remaining.</p>
     @if($help)<x-tall-components::common.help for="{{$name}}" :value="$help" />@endif
     <x-tall-components::common.error for="{{$name}}"/>    
 </div>
+{{--     x-init="$nextTick(() => {remainingLength = limit - element.value.length})" --}}
