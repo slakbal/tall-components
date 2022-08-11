@@ -1,4 +1,4 @@
-@props(['name', 'label' => null, 'limit' => 250, 'help' => null])
+@props(['name', 'key', 'label' => null, 'limit' => 250, 'help' => null])
 
 <div x-data="{
         element: $refs.{{$name}}Area,
@@ -13,7 +13,7 @@
     data-limit="{{ $limit }}"
     >
     @if($label)<x-tall-components::common.label for="{{$name}}" :value="$label" />@endif
-    <x-tall-components::text.field x-ref="{{$name}}Area" wire:key="{{ rand() }}" x-on:keyup="$el.value = limitText" {{$attributes}}></x-tall-components::text.field>
+    <x-tall-components::text.field x-ref="{{$name}}Area" wire:key="$key" x-on:keyup="$el.value = limitText" {{$attributes}}></x-tall-components::text.field>
     <p x-ref="remaining">You have <span x-text="remaining"></span> characters remaining.</p>
     @if($help)<x-tall-components::common.help for="{{$name}}" :value="$help" />@endif
     <x-tall-components::common.error for="{{$name}}"/>    
