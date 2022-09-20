@@ -10,7 +10,8 @@ class TimePicker extends Component
     {
         return [
             // 'dateFormat' => 'Y-m-d H:i:S', //the format of the datetime that is sent to the server   
-            'dateFormat' => 'H:i',
+            // 'dateFormat' => 'H:i',
+            'dateFormat' => 'Z',
             'enableTime' => true,
             'time_24hr' => true,
             'altInput' => true,
