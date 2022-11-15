@@ -47,6 +47,7 @@ class TallComponentsServiceProvider extends ServiceProvider
     public function bootDateTimeComponents()
     {
         //Blade Components
+        Blade::component('tall-components::date-picker', Date\DatePicker::class);
         Blade::component('tall-components::datetime-picker', Date\DateTimePicker::class);
         Blade::component('tall-components::time-picker', Date\TimePicker::class);
         // Blade::component('package-name::your-component', 'your-component');
