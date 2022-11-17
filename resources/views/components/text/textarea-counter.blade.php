@@ -12,10 +12,10 @@
     }"
     data-limit="{{ $limit }}"
     >
-    @if($label)<x-tall-components::common.label for="{{$name}}" :value="$label" />@endif
+    @if($label)<x-input-label for="{{$name}}" :value="$label" />@endif
     <x-tall-components::text.field x-ref="{{$name}}Area" wire:key="$key" x-on:keyup="$el.value = limitText" {{$attributes}}></x-tall-components::text.field>
     <p x-ref="remaining">You have <span x-text="remaining"></span> characters remaining.</p>
     @if($help)<x-tall-components::common.help for="{{$name}}" :value="$help" />@endif
-    <x-tall-components::common.error for="{{$name}}"/>    
+    <x-input-error class="mt-2" :messages="$errors->get($name)" />    
 </div>
 {{--     x-init="$nextTick(() => {remainingLength = limit - element.value.length})" --}}

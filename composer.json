@@ -20,7 +20,8 @@
     "require": {
         "illuminate/support": "~8|~9",
         "blade-ui-kit/blade-icons": "*",
-        "davidhsianturi/blade-bootstrap-icons": "*"
+        "davidhsianturi/blade-bootstrap-icons": "*",
+        "laravel/breeze": "*"
     },
     "require-dev": {
         "phpunit/phpunit": "^9.5",
