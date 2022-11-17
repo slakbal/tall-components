@@ -6,5 +6,4 @@
         <input type="radio" id="{{$name}}" name="{{$name}}" value="{{$value}}" {!! $attributes->merge(['class' => 'w-5 h-5']) !!}>
         <x-input-label for="{{$name}}" :value="$label" />
     </div>
-    <x-input-error class="mt-2" :messages="$errors->get($name)" />
 </div>
